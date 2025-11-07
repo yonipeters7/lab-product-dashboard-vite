@@ -1,13 +1,23 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import styles from '../styles/ProductList.module.css';
 
 const ProductList = ({ products }) => {
-  // TODO: Check if the product list is empty and display a message if needed
+  // Check if any products are in stock
+  const inStockProducts = products.filter((product) => product.inStock);
 
   return (
-    <div>
-      {/* TODO: Iterate over the products array and render a ProductCard for each product */}
-    </div>
+    <>
+      {inStockProducts.length > 0 ? (
+        <div className={styles.list}>
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <p className={styles.noStock}>No products are currently in stock 😔</p>
+      )}
+    </>
   );
 };
 

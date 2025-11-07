@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
-import ProductList from './components/ProductList';
+// src/App.js (or src/App.jsx)
 
-const App = () => {
-  // TODO: Define initial product data
+import React from 'react';
+import ProductList from './components/ProductList'; // adjust path if needed
 
-  // TODO: Implement state to manage filtering
-
-  // TODO: Implement logic to filter products based on availability
+function App() {
+  // Example data
+  const products = [
+    { id: 1, name: 'Laptop', price: 999.99, inStock: true },
+    { id: 2, name: 'Headphones', price: 199.99, inStock: false },
+    { id: 3, name: 'Keyboard', price: 89.99, inStock: true },
+  ];
 
   return (
     <div>
-      <h1>{/* TODO: Add 'Product Dashboard' title here */}</h1>
-      
-      {/* TODO: Add buttons to allow filtering by availability */}
-
-      {/* TODO: Render the ProductList component and pass filtered products */}
-      
+      <h1>Product Store</h1>
+      <ProductList products={products} />
     </div>
   );
-};
+}
 
 export default App;
